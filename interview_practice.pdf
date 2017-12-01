@@ -1,0 +1,116 @@
+Project: Answer the Following Interview Questions (6 total)
+For each of the questions below, answer as if you were in an interview, explaining and justifying your answer with two to three paragraphs as you see fit. For coding answers, explain the relevant choices you made writing the code.
+
+
+
+
+
+
+
+What is the most influential book or blog post you’ve read regarding web development?
+
+    The most influential book I have read regarding web development is "Learn Python The Hard Way", by Zed Shaw. The book holds true to its name; offering a dry, no-frills guide to learn Python with no prior experience. The author stresses the importance of repetition and practice. From the beginning, the book focuses on completing each task with exact precision. This book taught me the importance of carefully reading code. Some exercises are exactly that: reading sections of code, correcting errors along the way. Although this was a slow, often painstaking process, it taught me early in my programming career the importance of writing clean, consistent code.
+
+    I am considerably better at web development and programming in general than when I worked through this book. While Zed Shaw's approach to learning Python is straightforward and admittedly boring at times, I am glad that I developed those skills early in my career. He likens this approach to programming to a musician who practices scales and studies music theory. It may not be as fun as playing songs, but those skills are paramount to becoming a great musician. In the same way, a great programmer needs to develop their skills through practice.
+
+
+
+
+
+
+
+Tell me about a web application you have built. Why did you choose to build it? What did you learn? What challenges did you face and how did you overcome them?
+
+
+I built a web application that displays the locations of local disc golf courses using Google Maps. Users can get real-time weather conditions for each course. This was my first experience with the Google Maps API. I learned how to create and plot custom markers on the map, as well as implement third-party APIs. I also learned how to use Flask to make AJAX requests.
+
+This web application was also my first experience with with the "KnockoutJS" library, as well as my first project using a model-view controller. At first, I had a difficult time understanding the concept of separating the model and the view. It took some practice, but after some practice and lots of documentation I successfully implemented Knockout in my web application.
+
+I chose to create this application because I enjoy playing disc golf. It's a sport that not a lot of people know about, so it was cool to work on a project that had some personal meaning. The better I get at web development, the more I enjoy the freedom of contributing to unique and new applications that hopefully other people can enjoy as well.
+
+
+
+
+
+
+
+
+Write a function in Python that takes a list of strings and returns a single string that is an HTML unordered list (<ul>...</ul>) of those strings. You should include a brief explanation of your code. Then, what would you have to consider if the original list was provided by user input?
+
+Our inputs are a list of strings, such as ["hello", "happy", "sad", "123"]. We want our function to output an HTML unordered list. This means we need to wrap the whole list in "<li></li>" tags, as well as wrap each element in "<ul></ul>" tags. We can iterate over each element in the list (we already know each element is a string) and print each with the unordered list tags. This function has O(n) efficency.
+
+def my_list(s):
+    print("<ul>")
+    for t in s:
+        print("<li>" + t + "</li>")
+    print("</ul>")
+
+One clear issue with user input here is that someone could use a string such as "</li>" in their list. If the code runs as-is, this will cause the list to render incorrectly as the user has maliciously entered syntax that will cause this. We can filter inputs to prevent cases like this.
+
+
+
+
+
+
+
+
+
+
+
+
+List 2-3 attacks that web applications are vulnerable to. How do these attacks work? How can we prevent those attacks?
+
+One common vulnerability that web applications face are cross-site request forgeries (abbreviated "CSRF" or "XSRF"). These attacks involve making unauthorized requests on behalf of the user. CSRF attacks exploit the browser's trust of the user's identity. We can protect against this attack by using a unique secret token which is generated for every request. The token is verified by the server, and it is very hard for attackers to crack the hashing algorithm and obtain the correct token for every request.
+
+
+SQL injection is a dangerous technique that threatens entire databases. This attack takes advantages of websites that do not correctly handle and filter user input. Attackers can exploit this weakness and input their own SQL statements into the database. Their malicious code can tamper with the database entries, release classified information (for example, a bank's database of its customers' accounts), or even delete the entire database. However, it is easy to protect against SQL injections. A simple way to do this is by escaping characters that would otherwise be invalid or malicious input, and replacing them with valid strings. An even better protection against SQL injection is to use object-relational mapping library such as SQLAlchemy.
+
+
+
+
+
+
+
+
+Here is some starter code for a Flask Web Application. Expand on that and include a route that simulates rolling two dice and returns the result in JSON. You should include a brief explanation of your code.
+
+from flask import Flask, jsonify
+app = Flask(__name__)
+
+import json
+from random import randint
+
+@app.route('/')
+def hello_world():
+ return 'Hello World!'
+
+@app.route('/diceJSON')
+def roll_dice():
+    dice_a = randint(1, 6)
+    dice_b = randint(1, 6)
+    total = dice_a + dice_b
+    return jsonify(total)
+
+
+if __name__ == '__main__':
+ app.debug = True
+ app.run()
+
+First, we need to import jsonify, which will allow us to display our dice roll as a JSON output. We also import "randint" so we can call it directly from the "random" library. Next, we can create a route for our dice roll. This route is the extension users access the page with, here I name it "/diceJSON". Inside we define a function, "roll_dice()", which sets a variable for each of the two dice. We use "randint" to generate a random number between 1 and 6, then add the values and display them as JSON.
+
+
+
+
+
+
+
+
+
+If you were to start your full-stack developer position today, what would be your goals a year from now?
+
+A year from now, I plan to have several web applications under my belt. I will be comfortable with both the front and back end. I desire a position that improves my web development skills by learning new and emerging technologies, such as the reactJS library. I plan to develop a stronger understanding of algorithms and data structures that will make my web applications more powerful and efficient.
+
+Another goal is to develop a more comprehensive understanding of the relationship between the client and server. I want to strengthen my abilities as a front-end developer, as well as my database management skills.
+
+
+https://classroom.udacity.com/nanodegrees/nd004/parts/af045689-1d81-46e7-8a3b-ad05de1142ce/modules/348776022975462/lessons/3487760229239847/concepts/36483886240923#
