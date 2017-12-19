@@ -10,6 +10,11 @@
 
 # Vertices are represented as unique strings. The function definition should be question3(G)
 
+"""
+INPUT: dict
+OUTPUT: dict
+"""
+
 
 def question3(G):
     vertices = G.keys()
@@ -35,7 +40,6 @@ def question3(G):
         for j in xrange(len(vertices)):
             if i[1] in vertices[j]:
                 index1 = j
-                print index1
             if i[2] in vertices[j]:
                 index2 = j
 
@@ -50,7 +54,7 @@ def question3(G):
             filtered_edges.append(i)
 
 
-    minimum_spanning_tree = {} # your resulting adjacency lists, one for each vertex in the graph
+    minimum_spanning_tree = {}
     for weight, u, v in filtered_edges:
         if u not in minimum_spanning_tree:
             minimum_spanning_tree[u] = []
@@ -62,15 +66,21 @@ def question3(G):
 
         minimum_spanning_tree[v].append((u, weight))
 
-    print minimum_spanning_tree
+    return minimum_spanning_tree
 
     # sort edges by weight
 
 
 
 def main():
-    return question3({'A':[('B',2)],'B':[('A',2),('C',5)],'C':[('B',5)]})
-
+    # return question3({'A':[('B',2)],'B':[('A',2),('C',5)],'C':[('B',5)]})
+    print question3({'A': [('B', 7), ('D', 5)],
+         'B': [('A', 7), ('C', 8), ('D', 9), ('E', 7)],
+         'C': [('B', 8), ('E', 5)],
+         'D': [('A', 5), ('B', 9), ('E', 15), ('F', 6)],
+         'E': [('B', 7), ('C', 5), ('D', 15), ('F', 8), ('G', 9)],
+         'F': [('D', 6), ('E', 8), ('G', 11)],
+         'G': [('E', 9), ('F', 11)]})
 
 if __name__ == "__main__":
     main()

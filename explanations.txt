@@ -1,0 +1,23 @@
+Question 1: Here we are trying to find if some combination of a given string is a substring of another. I know that we can create an anagram of a string using the "itertools" module. The "permutations" generator can return all possible unique combinations of a given input, so I used this to get all available anagrams. Then I could simply compare each anagram to the desired string, and return True or False depending on if the substring is found. The time complexity is O(n^2), and the space complexity is O(n).
+
+
+
+
+Question 2: I use the Python syntax "string[::-1]" to return the reversed string. Then, I used a nested "for" loop to iterate over every index in both the normal and reversed strings. While a paldindrome is valid, it will be filled one index at a time until the palindrome is broken or a larger palindrome is found. The time complexity is O(n^2), and the space complexity is O(n).
+
+
+
+
+
+
+Question 3: This problem calls for a minimum search tree algorithm, I chose Kruskal's algorithm. However, I solved this problem without creating a "Node", "Graph", or "Edge" class. I chose this method because it seemed the clearest way to both input and output an adjacency list. I used a nested "for" loop to create an edge list from the input. Using set unions, I compared the edge weights and created a filtered edge list containing only the edges on the minimum search tree. The last step was converting the filtered edge list back into an adjacency list. The time complexity of this equation simplifies to O(n^2). The space complexity is O(n).
+
+
+
+
+Question 4: This problem takes an adjacency matrix as input. Because we know the adjacency matrix, the root, and the values of n1 and n2, we can extrapolate the search tree from this information. If one of our n1 or n2 nodes equals the root, we can stop right there. If not, we can iterate over the adjacency matrix and find the parents of each node. By comparing our starting nodes to the list of the other's parents, we can see of one is a parent of the other. This solution's time complexity is O(n), with a space complexity of O(n).
+
+
+
+
+Question 5: This problem is straightforward and can be solved using a linked list with two pointer variables. We set both pointer variables equal to the head. Then, both pointers are moved one at a time until p2 gets to the end of the linked list. The time complexity is O(n), with a space complexity of O(n).

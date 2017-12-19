@@ -27,7 +27,7 @@ class LinkedList:
         p1 = self.head
         p2 = self.head
 
-        # Starts at the first element of the linked list, continues
+
         for i in range(m):
             if (p1 == None):
                 return None
@@ -41,16 +41,16 @@ class LinkedList:
 
 
 ll = LinkedList()
-ll.push(1)
-ll.push(2)
-ll.push(3)
-ll.push(4)
-ll.push(5)
-ll.push(6)
+ll.push("A")
+ll.push("B")
+ll.push("C")
+ll.push("D")
+ll.push("E")
+ll.push("F")
 
 def main():
 
-    print LinkedList.question5(ll, 1)
+    print LinkedList.question5(ll, 3)
 
 if __name__ == "__main__":
     main()
